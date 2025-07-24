@@ -2,6 +2,7 @@ package com.example.demo.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table
+@Builder
 public class Autor {
 
     @Id
@@ -24,4 +26,5 @@ public class Autor {
 
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
+
 }

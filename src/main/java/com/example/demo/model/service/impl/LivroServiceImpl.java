@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -24,4 +26,11 @@ public class LivroServiceImpl implements LivroService {
             throw new ApiErrorException("Não foi possível salvar o livro!");
         }
     }
+
+    @Override
+    public Optional<Livro> findByIsbn(String isbn) {
+        return livroRepository.findByIsbn(isbn);
+    }
+
+
 }

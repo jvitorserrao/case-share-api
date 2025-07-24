@@ -19,4 +19,5 @@ public class WebClientConfig {
                 .defaultHeader(HttpHeaders.ACCEPT, MediaType.TEXT_HTML_VALUE)
                 .build();
     }
+
 }
