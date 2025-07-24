@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -22,7 +23,7 @@ public class LivroServiceImpl implements LivroService {
         try {
             return livroRepository.save(livro);
         } catch (Exception e) {
-            log.error("Falha ao salvar livro: " + livro.getTitulo(), e);
+            log.error("Erro ao salvar livro: " + livro.getTitulo(), e);
             throw new ApiErrorException("Não foi possível salvar o livro!");
         }
     }
@@ -30,6 +31,11 @@ public class LivroServiceImpl implements LivroService {
     @Override
     public Optional<Livro> findByIsbn(String isbn) {
         return livroRepository.findByIsbn(isbn);
+    }
+
+    @Override
+    public List<Livro> getAll() {
+        return livroRepository.findAll();
     }
 
 
