@@ -70,6 +70,18 @@ Content-Type: application/json
 }
 ```
 
+### Criar Categoria
+
+```http
+POST /api/categoria
+Content-Type: application/json
+
+{
+"nome": "Romance"
+"descricao": "Livros de Romance"
+}
+```
+
 ### Criar Livro
 
 ```http
