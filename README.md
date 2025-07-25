@@ -45,7 +45,7 @@ http://localhost:8080/swagger-ui.html
 - `POST /api/autor` → Criar novo autor
 - `PUT /api/autor/{id}` → Atualizar autor
 - `DELETE /api/autor/{id}` → Deletar autor
-- `GET /api/autor/{id}/livros` → Listar livros de um autor
+- `GET /api/autor/{idAutor}/livros` → Listar livros de um autor
 
 ### 🗂 Categorias
 
