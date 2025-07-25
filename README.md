@@ -27,6 +27,22 @@ http://localhost:8080/swagger-ui.html
 
 ---
 
+3. Uma coleção do Postman está disponível para facilitar o uso da API, arquivo:
+
+```
+API-Biblioteca.postman_collection.json
+```
+
+## 🧪 Testes com Postman
+
+### 📥 Importar a coleção
+
+1. Abra o [Postman](https://www.postman.com/)
+2. Clique em **"Import"**
+3. Cole o Json
+
+---
+
 ## 📌 Endpoints Disponíveis
 
 ### 📖 Livros

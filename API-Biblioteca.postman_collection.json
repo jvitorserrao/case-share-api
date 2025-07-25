@@ -1,0 +1,389 @@
+{
+  "info": {
+    "_postman_id": "d1e2f3g4-h5i6-7j8k-9l0m-1n2o3p4q5r6s",
+    "name": "API Biblioteca",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_collection_id": "d1e2f3g4-h5i6-7j8k-9l0m-1n2o3p4q5r6s"
+  },
+  "item": [
+    {
+      "name": "Autores",
+      "item": [
+        {
+          "name": "Listar todos os autores (com paginação)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/autor?page=0&size=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["autor"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0",
+                  "description": "Número da página (inicia em 0)"
+                },
+                {
+                  "key": "size",
+                  "value": "10",
+                  "description": "Quantidade de itens por página"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar autor por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/autor/{{autorId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["autor", "{{autorId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar novo autor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Stephen King\",\n    \"email\": \"stephen.king@example.com\",\n    \"dataNascimento\": \"1947-09-21\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/autor",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["autor"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar autor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Stephen Edwin King\",\n    \"email\": \"stephen.e.king@example.com\",\n    \"dataNascimento\": \"1947-09-21\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/autor/{{autorId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["autor", "{{autorId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deletar autor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/autor/{{autorId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["autor", "{{autorId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar livros do autor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/autor/{{autorId}}/livros",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["autor", "{{autorId}}", "livros"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Livros",
+      "item": [
+        {
+          "name": "Listar todos os livros (com filtros)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/livro?categoria={{categoriaId}}&ano={{ano}}&autor={{autorId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["livro"],
+              "query": [
+                {
+                  "key": "categoria",
+                  "value": "{{categoriaId}}",
+                  "description": "(opcional) ID da categoria para filtrar",
+                  "disabled": true
+                },
+                {
+                  "key": "ano",
+                  "value": "{{ano}}",
+                  "description": "(opcional) Ano de publicação para filtrar",
+                  "disabled": true
+                },
+                {
+                  "key": "autor",
+                  "value": "{{autorId}}",
+                  "description": "(opcional) ID do autor para filtrar",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar livro por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/livro/{{livroId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["livro", "{{livroId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar novo livro",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"titulo\": \"A Revolução dos Bichos\",\n    \"isbn\": \"978-8535906667\",\n    \"anoPublicacao\": 1945,\n    \"preco\": 39.90,\n    \"autorId\": {{autorId}},\n    \"categoriaId\": {{categoriaId}}\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/livro",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["livro"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar livro",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"titulo\": \"A Revolução dos Bichos (Nova Edição)\",\n    \"isbn\": \"978-8535906668\",\n    \"anoPublicacao\": 2020,\n    \"preco\": 45.50,\n    \"autorId\": {{autorId}},\n    \"categoriaId\": {{categoriaId}}\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/livro/{{livroId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["livro", "{{livroId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deletar livro",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/livro/{{livroId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["livro", "{{livroId}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar livro por título",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/livro/search?titulo={{titulo}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["livro", "search"],
+              "query": [
+                {
+                  "key": "titulo",
+                  "value": "{{titulo}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Importar livro da Amazon",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"url\": \"https://www.amazon.com.br/Dom-Casmurro-Machado-Assis/dp/859431860X\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/livro/importar",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["livro", "importar"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Categorias",
+      "item": [
+        {
+          "name": "Listar todas as categorias",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/categoria",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["categoria"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Criar categoria",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Ficção Científica\",\n    \"descricao\": \"Livros que exploram conceitos imaginativos da ciência e tecnologia.\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/categoria",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["categoria"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar livros da categoria",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/categoria/{{categoriaId}}/livros",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["categoria", "{{categoriaId}}", "livros"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "autorId",
+      "value": "1",
+      "type": "string",
+      "description": "ID de um autor existente"
+    },
+    {
+      "key": "livroId",
+      "value": "1",
+      "type": "string",
+      "description": "ID de um livro existente"
+    },
+    {
+      "key": "categoriaId",
+      "value": "1",
+      "type": "string",
+      "description": "ID de uma categoria existente"
+    },
+    {
+      "key": "titulo",
+      "value": "Revolução",
+      "type": "string",
+      "description": "Parte do título do livro para busca"
+    },
+    {
+      "key": "ano",
+      "value": "2023",
+      "type": "string",
+      "description": "Ano de publicação para filtro"
+    }
+  ]
+}
