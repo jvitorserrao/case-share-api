@@ -1,14 +1,11 @@
 package com.share.case_jr.model.service.impl;
 
 import com.share.case_jr.api.exception.ApiErrorException;
-import com.share.case_jr.model.dto.AutorDTO;
 import com.share.case_jr.model.dto.LivroFiltersDTO;
 import com.share.case_jr.model.dto.LivroResumoDTO;
 import com.share.case_jr.model.entity.Autor;
 import com.share.case_jr.model.entity.Categoria;
 import com.share.case_jr.model.entity.Livro;
-import com.share.case_jr.model.repository.AutorRepository;
-import com.share.case_jr.model.repository.CategoriaRepository;
 import com.share.case_jr.model.repository.LivroRepository;
 import com.share.case_jr.model.service.AutorService;
 import com.share.case_jr.model.service.CategoriaService;

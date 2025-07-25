@@ -1,7 +1,6 @@
 package com.share.case_jr.api.controller;
 
 import com.share.case_jr.model.dto.CategoriaDTO;
-import com.share.case_jr.model.dto.LivroResumoDTO;
 import com.share.case_jr.model.entity.Categoria;
 import com.share.case_jr.model.entity.Livro;
 import com.share.case_jr.model.service.CategoriaService;
