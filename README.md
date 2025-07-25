@@ -77,7 +77,7 @@ POST /api/categoria
 Content-Type: application/json
 
 {
-"nome": "Romance"
+"nome": "Romance",
 "descricao": "Livros de Romance"
 }
 ```
@@ -93,7 +93,7 @@ Content-Type: application/json
   "isbn": "978-85-00-12345-6",
   "anoPublicacao": 1899,
   "idAutor": 1,
-  "idCategoria": 2
+  "idCategoria": 1
 }
 ```
 
@@ -115,20 +115,11 @@ https://www.amazon.com.br/Dom-Casmurro-Machado-Assis/dp/859431860X
 
 Endpoint correspondente:
 ```http
-POST /api/importar
+POST /api/livro/importar
 {
   "url": "https://www.amazon.com.br/Dom-Casmurro-Machado-Assis/dp/859431860X"
 }
 ```
-
----
-
-## 🧪 Testes da API
-
-Você pode testar a API usando:
-
-- Postman (importando o arquivo `Livros.postman_collection.json`)
-- IntelliJ `testes.http`
 
 ---
 

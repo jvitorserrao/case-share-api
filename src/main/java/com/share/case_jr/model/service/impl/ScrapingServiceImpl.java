@@ -36,7 +36,7 @@ public class ScrapingServiceImpl implements ScrapingService {
 
     @Override
     @Transactional
-    public Livro importarLivro(RequestDTO dto) {
+    public void importarLivro(RequestDTO dto) {
 
         if (Objects.isNull(dto.url()) || dto.url().isBlank()) {
             throw new ApiErrorException("A URL não pode ser nula!");
@@ -63,12 +63,9 @@ public class ScrapingServiceImpl implements ScrapingService {
 
             validarLivro(titulo, isbn, preco, autor, anoPublicacao);
 
-            Livro livro = criarLivro(titulo, isbn, preco, autor, categoria, anoPublicacao);
+            criarLivro(titulo, isbn, preco, autor, categoria, anoPublicacao);
 
             log.info("Livro '{}' importado com sucesso!", titulo);
-
-            return livro;
-
     }
 
     private String fetchHtml(String url) {
